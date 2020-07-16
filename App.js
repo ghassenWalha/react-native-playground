@@ -1,21 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, SafeAreaView, Platform, StatusBar, View, Image, Text } from 'react-native';
+import { useDeviceOrientation } from '@react-native-community/hooks';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import WelcomeScreen from './app/screens/WelcomeScreen';
+import MessagesScreen from './app/screens/messagesScreen';
+
 
 export default function App() {
+  const { landscape } = useDeviceOrientation();
+  const landscapeStyle = { height: landscape ? '100%' : '100%' };
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <MessagesScreen></MessagesScreen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
